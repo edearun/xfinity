@@ -1,0 +1,47 @@
+
+    <div class="d-flex flex-wrap ">
+        <div class="p-2">
+
+        </div>
+        <div class="p-2">
+            
+            <!-- <form> -->
+                <select style="z-index: 2;" class="custom-select" (change)="categoryChange($event)" >
+                    <option value="DEVICE">DEVICE</option>
+                    <option value="TABLET">TABLET</option>
+                    <option value="SMART_WATCH">SMART_WATCH</option>
+                    <option value="ACCESSORIES">ACCESSORIES</option>
+                </select>
+            <!-- </form> -->
+        </div> 
+        <div class="p-2">
+            <button type="button" (click)="applyFilter()" class="btn btn-outline-primary" [disabled]="!applyButton">Apply</button>
+        </div >
+  </div>
+
+
+    <div class="d-flex flex-wrap text-center align-items-center " >
+            <a *ngFor="let productDetail of productDetails"
+                class="p-2" [routerLink]="['/productDetail/' + productDetail.slug]" >
+            <div><span *ngIf="productDetail.is5GCapable">5G Device</span></div>
+            <div>
+                <img width="auto" height="300" [src]="productDetail.image.url"/>
+            </div>   
+            <div >
+                {{productDetail.brand}}
+            </div> 
+            <div >
+                {{productDetail.name}}
+            </div>  
+            <div >
+                Starting at ${{productDetail.prices[1].promotionPrice}}/mo <s>${{productDetail.prices[1].originalPrice}}/mo </s>
+            </div >
+            <div>
+                For {{productDetail.prices[1].term}} months {{productDetail.prices[1].payOffAmount}} APR
+            </div>
+            <div >
+               Full Price: ${{productDetail.prices[0].originalPrice}}
+            </div >
+        </a>
+    </div>  
+    

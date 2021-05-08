@@ -1,0 +1,61 @@
+    <div class="d-flex flex-wrap">
+        <div class="p-2 " style="margin-left: 5%;" >
+            <div>
+                <img style="cursor: pointer;" src="https://img.xfinitymobile.com/image/upload/v1499724246/client/v2/icons/arrow_left_24_blue.svg" (click)="previousImage()"/> 
+                <img width="auto" height="400px" [src]="imagesList[imagesIndex]"/> 
+                <img style="cursor: pointer;" src="https://img.xfinitymobile.com/image/upload/v1499724246/client/v2/icons/arrow_right_24_blue.svg" (click)="nextImage()"/>
+            </div>
+           
+            
+            <div style="margin-left: 12%;">
+                 <img (click)="changeImage(i)" [src]="image" style="width:90px;cursor: pointer;" *ngFor="let image of imagesList;let i=index"  alt="device image">
+             
+            </div>
+          
+        </div>
+        <div class="p-2 " >
+            
+      
+            <div style="font-size: 50px;" class="below-margin">
+                {{ deviceBrand +" "+ deviceName}}
+            </div>  
+            <div class="below-margin"><span *ngIf="is5GCapable">5G Device</span></div>
+            <div style="font-size: 18px; " class="below-margin">
+                 <span style="font-weight:bold;  ">
+                    Color : 
+                 </span>
+                 <span>
+                    {{deviceColor}}
+                 </span>
+            </div>
+            <div style="font-size: 18px;" class="below-margin">
+                <span style="font-weight:bold;">
+                    Storage:
+                </span> 
+                <span>
+                    {{deviceCapacity}}
+                </span>
+            </div>
+            <div style="font-size: 18px;" class="below-margin">
+                <span style="font-weight:bold; "> 
+                    AVAILABILITY
+                </span> <br>
+                <span>
+                   {{availableFor}}
+                </span>
+            </div>
+            <div style="font-size: 18px;" class="below-margin">
+                <span style="font-weight:bold; ">PAYMENT</span> <br>
+                <span style="margin-bottom: 1rem;">Pay in full: {{currencyString}}{{originalPrice}}</span>
+                <br>
+                <span style=" margin-bottom: 1rem;">
+                    Pay Monthly for {{currencyString}}{{promotionLoanPrice}}/mo <s>{{currencyString}}{{originalLoanPrice}}/mo</s>
+                </span>
+ 
+            </div >
+            
+        </div>
+   
+
+
+
